@@ -1,13 +1,26 @@
 import {StyleSheet, Text, View, SafeAreaView, StatusBar} from 'react-native';
-import React from 'react';
-import {Header} from './components';
+import React, {useState} from 'react';
+import {Header, RecentlyViewed, Trending} from './components';
+import {COLORS} from '../../constants';
+import {TrendigItemType} from '../../types';
 
 const Home = () => {
+  const [selectedItem, setSelectedItem] = useState<TrendigItemType | null>(
+    null,
+  );
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
       <StatusBar />
-      <View>
+      <View style={{backgroundColor: COLORS.white, flex: 1}}>
+        {/* Header */}
         <Header />
+
+        {/* Trending */}
+        <Trending setSelectedItem={item => setSelectedItem(item)} />
+
+        {/* Recently Viewed */}
+        <RecentlyViewed setSelectedItem={item => setSelectedItem(item)} />
       </View>
     </SafeAreaView>
   );
