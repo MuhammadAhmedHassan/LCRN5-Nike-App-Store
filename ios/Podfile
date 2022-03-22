@@ -12,6 +12,8 @@ target 'LCRN5NikeStoreApp' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-blur', :path => '../node_modules/@react-native-community/blur'
+
   target 'LCRN5NikeStoreAppTests' do
     inherit! :complete
     # Pods for testing
